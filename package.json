@@ -1,0 +1,20 @@
+{
+  "name": "elar",
+  "version": "0.0.1",
+  "description": "a language like lisp implement by javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baixiaoji/elementary_arithmetic.git"
+  },
+  "keywords": [],
+  "author": "baixiaoji",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/baixiaoji/elementary_arithmetic/issues"
+  },
+  "homepage": "https://github.com/baixiaoji/elementary_arithmetic#readme"
+}
