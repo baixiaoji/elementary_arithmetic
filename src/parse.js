@@ -1,5 +1,5 @@
-const {isOpeningParenthesis, isClosingParenthesis} = require('./untils/indentify');
-const {pop, peak} = require('./untils/untilities');
+const {isOpeningParenthesis, isClosingParenthesis} = require('./helper/indentify');
+const {pop, peak} = require('./helper/untilities');
 
 const parenthesize = (tokens) => {
     const token = pop(tokens);
@@ -9,7 +9,7 @@ const parenthesize = (tokens) => {
         while(!isClosingParenthesis(peak(tokens).value)) {
             expression.push(parenthesize(tokens));
         }
-        pop(token);
+        pop(tokens);
         return expression;
     }
 
@@ -45,7 +45,7 @@ const parse = (tokens) => {
 
     if (token.type === 'Name') {
         return {
-            type: 'Indentifier',
+            type: 'Identifier',
             name: token.value,
         }
     }

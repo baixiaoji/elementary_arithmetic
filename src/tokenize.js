@@ -4,14 +4,14 @@ const {
     isParenthesis, 
     isWhitespace, 
     isQuote 
-} = require('./untils/indentify');
+} = require('./helper/indentify');
 
 const tokenize = (input) => {
     const tokens = [];
     let cursor = 0;
 
     while(cursor < input.length) {
-        const character = tokens[cursor];
+        const character = input[cursor];
 
         if (isWhitespace(character)) {
             cursor++;
@@ -21,8 +21,8 @@ const tokenize = (input) => {
         if (isLetter(character)) {
             let symbol = character;
 
-            while(isLetter(tokens[++cursor])) {
-                symbol += tokens[cursor];
+            while(isLetter(input[++cursor])) {
+                symbol += input[cursor];
             }
 
             tokens.push({
@@ -35,8 +35,8 @@ const tokenize = (input) => {
         if (isQuote(character)) {
             let string = '';
 
-            while(!isQuote(tokens[++cursor])) {
-                string += tokens[cursor];
+            while(!isQuote(input[++cursor])) {
+                string += input[cursor];
             }
 
             tokens.push({
@@ -51,14 +51,16 @@ const tokenize = (input) => {
         if (isNumber(character)) { 
             let numberStr = character;
 
-            while(isNumber(tokens[++cursor])) {
-                numberStr += token[cursor];
+            while(isNumber(input[++cursor])) {
+                numberStr += input[cursor];
             }
 
             tokens.push({
                 type: 'Number',
                 value: parseInt(numberStr, 10),
             })
+
+            continue;
         }
 
         if (isParenthesis(character)) {

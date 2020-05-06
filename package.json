@@ -4,7 +4,7 @@
   "description": "a language like lisp implement by javascript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/baixiaoji/elementary_arithmetic/issues"
   },
-  "homepage": "https://github.com/baixiaoji/elementary_arithmetic#readme"
+  "homepage": "https://github.com/baixiaoji/elementary_arithmetic#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.9.6",
+    "@types/jest": "^25.2.1",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1",
+    "jest-watch-typeahead": "^0.6.0"
+  }
 }
