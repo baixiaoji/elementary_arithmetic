@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const chalk = require('chalk');
+
+const { parseAndEvaluate } = require('../src/parse-and-evaluate.js');
+
+
+
+const [command, ...args] = process.argv.slice(2);
+
+if (!command) {
+  const repl = require('../src/repl.js');
+  return repl();
+}
+
+if (command.toLowerCase() === 'run') {
+  fs.readFile(args[0], 'utf-8', (error, file) => {
+    if (error) {
+      console.error(error);
+    }
+    const result = parseAndEvaluate(file);
+    console.log(result);
+  });
+}
+
+if (command.toLowerCase() === '--help') {
+  console.log()
+  console.log(
+    chalk.red(
+      `  Welcome to the ${chalk.magenta.bold('elar')} Programming Language manuals`,
+    ),
+  )
+  console.log()
+  console.log(`  
+    Run ${chalk.cyan(`elar`)} enter the repl.
+  `)
+  console.log(`  
+    Run ${chalk.cyan(`elar run elar_file_path`)} to exec the file.
+  `)
+
+  console.log(
+      chalk.yellow(`    enjoy it`)
+  )
+  console.log()
+}
