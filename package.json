@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "a language like lisp implement by javascript",
   "main": "index.js",
+  "bin": {
+    "elar": "./bin/elar"
+  },
   "scripts": {
     "start": "node ./src/repl.js",
     "test": "jest"
